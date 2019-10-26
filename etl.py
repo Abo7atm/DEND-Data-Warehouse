@@ -4,15 +4,39 @@ from sql_queries import copy_table_queries, insert_table_queries
 
 
 def load_staging_tables(cur, conn):
+    """Iterate through and exectue COPY queries to insert
+    data into staging tables.
+
+    Parameters:
+        cur: cursor object
+            cursor to perform data base operation
+        conn: connection object
+            connection to database
+    """
+    counter = 1
     for query in copy_table_queries:
         cur.execute(query)
         conn.commit()
+        print('LOAD {} DONE.'.format(counter))
+        counter+=1
 
 
 def insert_tables(cur, conn):
+    """Iterate through and exectue INSERT queries to insert
+    data into analytics tables.
+
+    Parameters:
+        cur: cursor object
+            cursor to perform data base operation
+        conn: connection object
+            connection to database
+    """
+    counter = 1
     for query in insert_table_queries:
         cur.execute(query)
         conn.commit()
+        print('INSERT {} DONE.'.format(counter))
+        counter += 1
 
 
 def main():
