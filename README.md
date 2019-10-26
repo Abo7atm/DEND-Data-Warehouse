@@ -7,6 +7,10 @@ The final database has the following model:
 ![](model.png)
 
 ## Usage
-Make sure that `boto3` and `psycopg2` are installed.
-Run `python create_tables.py` to create the tables, and `python etl.py` to perform the ETL process.
+Make sure that `boto3` and `psycopg2` are installed.<br>
+Run
+```
+python create_tables.py # to create the tables
+python etl.py # to perform the ETL process
+```
 
