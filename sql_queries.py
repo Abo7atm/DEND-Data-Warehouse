@@ -1,7 +1,3 @@
-# TODO:
-# 1) Sort keys and dist keys
-# 2) Forign keys -- DONE
-
 import configparser
 
 
@@ -237,14 +233,14 @@ time_table_insert = ("""
         week, month, year,
         weekday
     )
-    SELECT ts,
+    SELECT start_time AS ts,
           EXTRACT(hr FROM ts) AS hour,
           EXTRACT(d FROM ts) AS day,
           EXTRACT(w FROM ts) AS week,
           EXTRACT(mon from ts) AS month,
           EXTRACT(y from ts) AS year,
           EXTRACT(weekday from ts) AS weekday
-    FROM staging_events
+    FROM songplays
     WHERE ts IS NOT NULL
 """)
 
